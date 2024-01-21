@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjmwwmffihis"]
+
+[ext_resource type="Script" path="res://objects/map_control.gd" id="1_jmycb"]
+[ext_resource type="PackedScene" uid="uid://chd16375jd2mg" path="res://objects/basic_tilemap.tscn" id="2_q4v0n"]
+[ext_resource type="PackedScene" uid="uid://ml6gy26aj15p" path="res://objects/player_character.tscn" id="3_awf0g"]
+[ext_resource type="PackedScene" path="res://objects/combat_scene.tscn" id="4_m5dkl"]
+[ext_resource type="PackedScene" uid="uid://cqrojvm3a66b7" path="res://objects/map_folder/tile_event_move.tscn" id="5_pli2u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04rmg"]
+size = Vector2(256, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gat88"]
+size = Vector2(22, 224)
+
+[node name="Base_map" type="Node2D"]
+script = ExtResource("1_jmycb")
+
+[node name="TileMap" parent="." instance=ExtResource("2_q4v0n")]
+
+[node name="player_character" parent="." instance=ExtResource("3_awf0g")]
+
+[node name="bounding_box" type="StaticBody2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bounding_box"]
+position = Vector2(112, 218)
+shape = SubResource("RectangleShape2D_04rmg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bounding_box"]
+position = Vector2(251, 96)
+shape = SubResource("RectangleShape2D_gat88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bounding_box"]
+position = Vector2(-27, 96)
+shape = SubResource("RectangleShape2D_gat88")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bounding_box"]
+position = Vector2(112, -26)
+shape = SubResource("RectangleShape2D_04rmg")
+
+[node name="Combat_scene" parent="." instance=ExtResource("4_m5dkl")]
+visible = false
+
+[node name="map_collisions" type="Node" parent="."]
+
+[node name="tile_event_move" parent="map_collisions" instance=ExtResource("5_pli2u")]
+position = Vector2(224, 0)
+tile_number = 1
+to_map_name = ""
+
+[node name="to_world" parent="map_collisions" instance=ExtResource("5_pli2u")]
+position = Vector2(32, 0)
+tile_number = 2
+to_map_name = "world_map"
+to_map_tile = 2

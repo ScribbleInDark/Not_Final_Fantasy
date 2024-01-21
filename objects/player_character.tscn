@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ml6gy26aj15p"]
+
+[ext_resource type="Script" path="res://objects/basic_main_character.gd" id="1_ffn4v"]
+[ext_resource type="Texture2D" uid="uid://hbqe653enij4" path="res://asset/map_sprite.png" id="2_3tvon"]
+
+[node name="player_character" type="Node2D"]
+position = Vector2(8, 8)
+script = ExtResource("1_ffn4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_3tvon")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 0)
+offset = Vector2(8, 8)
+position_smoothing_enabled = true
+
+[node name="black_out" type="ColorRect" parent="."]
+visible = false
+offset_left = -125.0
+offset_top = -106.0
+offset_right = 146.0
+offset_bottom = 123.0
+color = Color(0, 0, 0, 1)

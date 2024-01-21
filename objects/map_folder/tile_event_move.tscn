@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqrojvm3a66b7"]
+
+[ext_resource type="Script" path="res://objects/map_folder/tile_event_move.gd" id="1_4auqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8way2"]
+size = Vector2(16, 16)
+
+[node name="tile_event_move" type="StaticBody2D"]
+collision_layer = 32
+script = ExtResource("1_4auqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_8way2")

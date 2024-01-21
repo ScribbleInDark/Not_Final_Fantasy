@@ -1,0 +1,151 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://objects/Combat_Engine.gd" id="1_2qrmk"]
+[ext_resource type="Script" path="res://objects/player_combat_sprite_script.gd" id="2_n1o81"]
+[ext_resource type="Texture2D" uid="uid://c7xp3dcqxx5y1" path="res://asset/Player_battle_sprites/test_player_sprite.png" id="3_n40k0"]
+[ext_resource type="Script" path="res://objects/enemy_sprite_script.gd" id="4_5bup3"]
+[ext_resource type="Texture2D" uid="uid://rj8x3l4ip1ng" path="res://asset/enemy_battle_sprites/test_enemy_battle_sprite.png" id="5_4cn5k"]
+[ext_resource type="Texture2D" uid="uid://bh1n8kmv2xocu" path="res://asset/effects/selector.png" id="6_cxvey"]
+[ext_resource type="PackedScene" uid="uid://bwcqkc1acan4b" path="res://objects/4_option_action.tscn" id="7_82lfk"]
+
+[node name="Combat_scene" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="color_square_holding" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="color_square_holding"]
+offset_right = 255.0
+offset_bottom = 226.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="color_square_holding"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 176.0
+color = Color(0.309804, 0.309804, 0.309804, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="color_square_holding"]
+offset_left = 192.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 176.0
+metadata/_edit_lock_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="color_square_holding"]
+offset_left = 16.0
+offset_top = 192.0
+offset_right = 240.0
+offset_bottom = 224.0
+metadata/_edit_lock_ = true
+
+[node name="Combat_Engine" type="Node2D" parent="."]
+script = ExtResource("1_2qrmk")
+metadata/_edit_lock_ = true
+
+[node name="player_side" type="Node2D" parent="Combat_Engine"]
+metadata/_edit_lock_ = true
+
+[node name="player_combat_sprite" type="Node2D" parent="Combat_Engine/player_side"]
+script = ExtResource("2_n1o81")
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Combat_Engine/player_side/player_combat_sprite"]
+position = Vector2(161, 34)
+texture = ExtResource("3_n40k0")
+
+[node name="name_label" type="RichTextLabel" parent="Combat_Engine/player_side/player_combat_sprite"]
+offset_left = 192.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 29.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 8
+text = "hello"
+
+[node name="health_label" type="RichTextLabel" parent="Combat_Engine/player_side/player_combat_sprite"]
+offset_left = 193.0
+offset_top = 32.0
+offset_right = 241.0
+offset_bottom = 45.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 8
+text = "hello"
+
+[node name="player_combat_sprite2" type="Node2D" parent="Combat_Engine/player_side"]
+position = Vector2(0, 35)
+script = ExtResource("2_n1o81")
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Combat_Engine/player_side/player_combat_sprite2"]
+position = Vector2(161, 34)
+texture = ExtResource("3_n40k0")
+
+[node name="name_label" type="RichTextLabel" parent="Combat_Engine/player_side/player_combat_sprite2"]
+offset_left = 192.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 29.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 8
+text = "hello"
+
+[node name="health_label" type="RichTextLabel" parent="Combat_Engine/player_side/player_combat_sprite2"]
+offset_left = 193.0
+offset_top = 32.0
+offset_right = 241.0
+offset_bottom = 45.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 8
+text = "hello"
+
+[node name="enemy_side" type="Node2D" parent="Combat_Engine"]
+metadata/_edit_lock_ = true
+
+[node name="enemy_sprite" type="Node2D" parent="Combat_Engine/enemy_side"]
+position = Vector2(49, 39)
+script = ExtResource("4_5bup3")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Combat_Engine/enemy_side/enemy_sprite"]
+texture = ExtResource("5_4cn5k")
+metadata/_edit_lock_ = true
+
+[node name="enemy_sprite2" type="Node2D" parent="Combat_Engine/enemy_side"]
+position = Vector2(98, 78)
+script = ExtResource("4_5bup3")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Combat_Engine/enemy_side/enemy_sprite2"]
+texture = ExtResource("5_4cn5k")
+metadata/_edit_lock_ = true
+
+[node name="enemy_sprite3" type="Node2D" parent="Combat_Engine/enemy_side"]
+position = Vector2(49, 96)
+script = ExtResource("4_5bup3")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Combat_Engine/enemy_side/enemy_sprite3"]
+texture = ExtResource("5_4cn5k")
+metadata/_edit_lock_ = true
+
+[node name="text_log" type="RichTextLabel" parent="Combat_Engine"]
+offset_left = 17.0
+offset_top = 190.0
+offset_right = 238.0
+offset_bottom = 224.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 8
+
+[node name="selector" type="Node2D" parent="Combat_Engine"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Combat_Engine/selector"]
+texture = ExtResource("6_cxvey")
+
+[node name="action_menu" parent="Combat_Engine" instance=ExtResource("7_82lfk")]
+visible = false
+position = Vector2(0, 163)
